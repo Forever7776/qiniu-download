@@ -23,6 +23,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author kz
+ * 下载七牛某空间下的资源文件
+ */
 public class DownloadFromQINiu {
     Auth auth;
     BucketManager bucketManager;
@@ -61,8 +65,9 @@ public class DownloadFromQINiu {
     @Test
     public void downFile() throws IOException {
         List<FileInfo> fileInfoList = queryResource();
-        Integer size = 100;//这个用于控制单个线程的下载数量
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(50,1000,1, TimeUnit.DAYS,new LinkedBlockingQueue<Runnable>());
+        //这个用于控制单个线程的下载数量
+        Integer size = 100;
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(100,1000,1, TimeUnit.DAYS,new LinkedBlockingQueue<Runnable>());
 
         for(int i=0,len=fileInfoList.size()/size;i<len;i++){
             Integer start = i*size,
@@ -82,7 +87,7 @@ public class DownloadFromQINiu {
      * @throws IOException
      */
     public void saveToPath(Response response,String key) throws IOException {
-        String downPath = "D://qiniu";
+        String downPath = "D:\\qiniu\\images";
         InputStream is = null;
         byte[] buf = new byte[2048];
         int len =0;
@@ -144,8 +149,8 @@ public class DownloadFromQINiu {
                     e.printStackTrace();
                 }
 
-
             }
+            System.out.println("下载完成");
         }
     }
 }

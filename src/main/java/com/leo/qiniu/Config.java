@@ -3,7 +3,7 @@ package com.leo.qiniu;
 /**
  * Config
  *
- * @author lmhy
+ * @author kz
  * @date 2016-5-30
  */
 public class Config {
@@ -14,7 +14,7 @@ public class Config {
     public static final String FILEPATH = "";*/
     public static final String AK = "TM55MTZ-7i35hhBViFt1KhoyqEptabDFJ5UA11pF";
     public static final String SK = "le1uwMSHYa7HcqtqjhUiBRgfnpPFUH-rc2XZqca8";
-    public static final String BUCKET = "media";
-    public static final String DOMAIN = "http://ob2dt6f5q.bkt.clouddn.com/";
+    public static final String BUCKET = "images";
+    public static final String DOMAIN = "http://p0fawki62.bkt.clouddn.com/";
     public static final String FILEPATH = "";
 }
